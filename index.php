@@ -1,3 +1,26 @@
+<?php
+
+include 'database.php';
+
+function select ($query)
+{
+  // panggil koneksi database
+    global $db;
+
+    $result = mysqli_query($db, $query);
+    $rows = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] =$row;
+    }
+
+    return $rows;
+}
+
+$data_barang = select('SELECT * FROM barang');
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -50,17 +73,20 @@
     </thead>
 
     <tbody>
+      <?php $no = 1; ?>
+      <?php foreach ($data_barang as $barang) : ?>
         <tr>
-            <td>1</td>
-            <td>Mouse</td>
-            <td>5</td>
-            <td>50000</td>
-            <td>02/04/2024</td>
+            <td><?= $no++; ?></td>
+            <td><?= $barang ['nama']; ?></td>
+            <td><?= $barang ['jumlah']; ?></td>
+            <td><?= $barang ['harga']; ?></td>
+            <td><?= $barang ['tanggal']; ?></td>
             <td width="15%" class="text-center">
                 <a href="" class="btn btn-success">Ubah</a>
                 <a href="" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
     </div>
