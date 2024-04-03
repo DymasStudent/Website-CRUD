@@ -12,7 +12,7 @@ $data_barang = select("SELECT * FROM barang ORDER BY id_barang ASC");
 
   <a href="tambah-barang.php" class="btn btn-primary mb-1">Tambah</a>
 
-  <table class="table table-bordered table-striped mt-3">
+  <table class="table table-bordered table-striped mt-3" id="table">
     <thead>
       <th>No</th>
       <th>Nama</th>
