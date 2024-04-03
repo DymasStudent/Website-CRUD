@@ -10,7 +10,7 @@ $data_barang = select('SELECT * FROM barang');
   <h1>DATA BARANG</h1>
   <hr>
 
-  <a href="form-tambah.php" class="btn btn-primary mb-1">Tambah</a>
+  <a href="tambah-barang.php" class="btn btn-primary mb-1">Tambah</a>
 
   <table class="table table-bordered table-striped mt-3">
     <thead>
@@ -42,7 +42,7 @@ $data_barang = select('SELECT * FROM barang');
             <?= date('d/m/Y | H:i:s', strtotime($barang['tanggal'])); ?>
           </td>
           <td width="15%" class="text-center">
-            <a href="" class="btn btn-success">Ubah</a>
+            <a href="ubah-barang.php?id_barang=<?= $barang['id_barang']; ?>" class="btn btn-success">Ubah</a>
             <a href="" class="btn btn-danger">Hapus</a>
           </td>
         </tr>

@@ -16,6 +16,7 @@ function select($query)
  return $rows;
 }
 
+// fungsi menambah data barang
 function create_barang($post)
 {
  global $db;
@@ -23,10 +24,29 @@ function create_barang($post)
  $nama = $post['nama'];
  $jumlah = $post['jumlah'];
  $harga = $post['harga'];
-
+ // query tambah data
  $query = "INSERT INTO barang VALUES(null, '$nama', '$jumlah', '$harga', CURRENT_TIMESTAMP())";
 
  mysqli_query($db, $query);
 
  return mysqli_affected_rows($db);
+}
+
+//fungsi mengubah data barang
+function update_barang($post)
+{
+ global $db;
+
+ $id_barang = $post['id_barang'];
+ $nama = $post['nama'];
+ $jumlah = $post['jumlah'];
+ $harga = $post['harga'];
+
+ // query ubah data
+ $query = "UPDATE barang SET nama = '$nama', jumlah = '$jumlah', harga = '$harga' WHERE id_barang = $id_barang";
+
+ mysqli_query($db, $query);
+
+ return mysqli_affected_rows($db);
+
 }
