@@ -16,7 +16,7 @@ include 'config/app.php';
   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
 
- <title>Hello, world!</title>
+ <title><?= $title; ?></title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@ include 'config/app.php';
        <a class="nav-link" href="index.php">Barang</a>
       </li>
       <li class="nav-item">
-       <a class="nav-link" href="#">Mahasiswa</a>
+       <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
       </li>
       <li class="nav-item">
        <a class="nav-link" href="#">Modal</a>

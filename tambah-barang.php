@@ -1,4 +1,7 @@
 <?php
+
+$title = 'Tambah Barang';
+
 include 'layout/header.php';
 
 // check tombol

@@ -1,5 +1,7 @@
 <?php
 
+$title = 'Ubah Barang';
+
 include 'layout/header.php';
 
 // mengambil id_barang dari url
