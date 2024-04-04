@@ -88,6 +88,34 @@ function create_mahasiswa($post)
     return mysqli_affected_rows($db);
 }
 
+// fungsi mengubah data mahasiswa
+function update_mahasiswa($post)
+{
+    global $db;
+
+    $id_mahasiswa = htmlspecialchars($post['$id_mahasiswa']);
+    $nama = htmlspecialchars($post['nama']);
+    $prodi = htmlspecialchars($post['prodi']);
+    $jk = htmlspecialchars($post['jk']);
+    $telepon = htmlspecialchars($post['telepon']);
+    $email = htmlspecialchars($post['email']);
+    $fotoLama = htmlspecialchars($post['fotoLama']);
+
+    // check upload foto baru atau tidak
+    if ($_FILES['foto']['error'] == 4) {
+        $foto = $fotoLama;
+    } else {
+        $foto = upload_file();
+    }
+
+    // query ubah data
+    $query = "UPDATE mahasiswa SET nama = '$nama', prodi = '$prodi', jk = '$jk', telepon = '$telepon', email = '$email', foto = '$foto' WHERE id_mahasiswa = $id_mahasiswa";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
 // fungsi mengupload file
 function upload_file()
 {
