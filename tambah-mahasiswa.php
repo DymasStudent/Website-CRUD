@@ -41,34 +41,32 @@ if (isset($_POST['tambah'])) {
         </select>
       </div>
 
-      <div class="row">
-        <div class="mb-3 col-6">
-          <label for="jk" class="form-label">Jenis Kelamin</label>
-          <select name="jk" id="jk" class="form-control" required>
-            <option value="">-- pilih jenis kelamin --</option>
-            <option value="Laki-Laki">Laki-Laki</option>
-            <option value="Perempuan">Perempuan</option>
-          </select>
-        </div>
-
+      <div class="mb-3 col-6">
+        <label for="jk" class="form-label">Jenis Kelamin</label>
+        <select name="jk" id="jk" class="form-control" required>
+          <option value="">-- pilih jenis kelamin --</option>
+          <option value="Laki-Laki">Laki-Laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
       </div>
+    </div>
 
-      <div class="mb-3">
-        <label for="telepon" class="form-label">telepon</label>
-        <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Telepon..." required>
-      </div>
+    <div class="mb-3">
+      <label for="telepon" class="form-label">telepon</label>
+      <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Telepon..." required>
+    </div>
 
-      <div class="mb-3">
-        <label for="email" class="form-label">email</label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="Email..." required>
-      </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">email</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Email..." required>
+    </div>
 
-      <div class="mb-3">
-        <label for="foto" class="form-label">foto</label>
-        <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto...">
-      </div>
+    <div class="mb-3">
+      <label for="foto" class="form-label">foto</label>
+      <input type="file" class="form-control" id="foto" name="foto" placeholder="Foto...">
+    </div>
 
-      <button type="submit" name="tambah" class="btn btn-primary" style="float: right">Tambah</button>
+    <button type="submit" name="tambah" class="btn btn-primary" style="float: right;">Tambah</button>
   </form>
 </div>
 

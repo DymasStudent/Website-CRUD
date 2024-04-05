@@ -17,7 +17,7 @@ include 'config/app.php';
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
 
   <title>
-    <?= $title; ?>
+    <?= $title ?>
   </title>
 </head>
 

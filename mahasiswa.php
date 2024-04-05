@@ -4,10 +4,11 @@ $title = 'Daftar Mahasiswa';
 
 include 'layout/header.php';
 
-// menampilkan data mahasiswa
-$data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC");
 
-?>
+// menampilkan data mahasiswa
+$data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC")
+
+    ?>
 
 <div class="container mt-5">
     <h1>Data Mahasiswa</h1>
@@ -17,14 +18,12 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC");
 
     <table class="table table-bordered table-striped mt-3" id="table">
         <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>prodi</th>
-                <th>Jenis Kelamin</th>
-                <th>Telepon</th>
-                <th>Aksi</th>
-            </tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Prodi</th>
+            <th>Jenis Kelamin</th>
+            <th>Telepon</th>
+            <th>Aksi</th>
         </thead>
 
         <tbody>
@@ -35,25 +34,22 @@ $data_mahasiswa = select("SELECT * FROM mahasiswa ORDER BY id_mahasiswa DESC");
                         <?= $no++; ?>
                     </td>
                     <td>
-                        <?= $mahasiswa['nama'] ?>
+                        <?= $mahasiswa['nama']; ?>
                     </td>
                     <td>
-                        <?= $mahasiswa['prodi'] ?>
+                        <?= $mahasiswa['prodi']; ?>
                     </td>
                     <td>
-                        <?= $mahasiswa['jk'] ?>
+                        <?= $mahasiswa['jk']; ?>
                     </td>
                     <td>
-                        <?= $mahasiswa['telepon'] ?>
+                        <?= $mahasiswa['telepon']; ?>
                     </td>
                     <td class="text-center" width="15%">
                         <a href="detail-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa']; ?>"
                             class="btn btn-secondary btn-sm">Detail</a>
-                        <a href="ubah-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa']; ?>"
-                            class="btn btn-succces btn-success">Ubah</a>
-                        <a href="hapus-mahasiswa.php?id_mahasiswa=<?= $mahasiswa['id_mahasiswa']; ?>"
-                            class="btn btn-danger btn-sm"
-                            onclick="return confirm('Apakah Anda Yakin Menghapus Data Berikut.?');">Hapus</a>
+                        <a href="" class="btn btn-success btn-sm">Ubah</a>
+                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

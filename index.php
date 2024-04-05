@@ -45,7 +45,8 @@ $data_barang = select("SELECT * FROM barang ORDER BY id_barang ASC");
           </td>
           <td width="15%" class="text-center">
             <a href="ubah-barang.php?id_barang=<?= $barang['id_barang']; ?>" class="btn btn-success">Ubah</a>
-            <a href="hapus-barang.php?id_barang=<?= $barang['id_barang']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Data Barang Akan Dihapus.?');">Hapus</a>
+            <a href="hapus-barang.php?id_barang=<?= $barang['id_barang']; ?>" class="btn btn-danger"
+              onclick="return confirm('Yakin Data Barang Akan Dihapus.?');">Hapus</a>
           </td>
         </tr>
       <?php endforeach; ?>
