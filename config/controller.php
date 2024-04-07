@@ -160,16 +160,75 @@ function upload_file()
 
 }
 
+// fungsi menghapus data mahasiswa
 function delete_mahasiswa($id_mahasiswa)
 {
     global $db;
 
     // ambil foto sesusai data yang dipilih
     $foto = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa")[0];
-    unlink("assets/img/". $foto['foto']);
+    unlink("assets/img/" . $foto['foto']);
 
     // query hapus data mahasiswa
     $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// fungsi tambah akun
+function create_akun($post)
+{
+    global $db;
+
+    $nama = htmlspecialchars($post['nama']);
+    $username = htmlspecialchars($post['username']);
+    $email = htmlspecialchars($post['email']);
+    $password = htmlspecialchars($post['password']);
+    $level = htmlspecialchars($post['level']);
+
+    // encrypted password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // query tambah data
+    $query = "INSERT INTO akun VALUES(null, '$nama', '$username', '$email', '$password', '$level')";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// fungsi ubah akun
+function update_akun($post)
+{
+    global $db;
+
+    $id_akun = htmlspecialchars($post['id_akun']);
+    $nama = htmlspecialchars($post['nama']);
+    $username = htmlspecialchars($post['username']);
+    $email = htmlspecialchars($post['email']);
+    $password = htmlspecialchars($post['password']);
+    $level = htmlspecialchars($post['level']);
+
+    // encrypted password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // query ubah data
+    $query = "UPDATE akun SET nama = '$nama', username = '$username', email = '$email', password = '$password', level = '$level' WHERE id_akun = $id_akun ";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+// fungsi menghapus data akun
+function delete_akun($id_akun)
+{
+    global $db;
+
+    // query hapus data akun
+    $query = "DELETE FROM akun WHERE id_akun = $id_akun";
 
     mysqli_query($db, $query);
 

@@ -40,7 +40,7 @@ include 'config/app.php';
               <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Modal</a>
+              <a class="nav-link" href="crud-modal.php">Modal</a>
             </li>
           </ul>
         </div>
