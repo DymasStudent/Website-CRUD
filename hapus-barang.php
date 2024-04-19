@@ -1,9 +1,17 @@
 <?php
 
+// membatasi halaman sebelum login
+if (!isset($_SESSION["login"])) {
+    echo "<script>
+            document.location.href = 'login.php';
+          </script>";
+    exit;
+}
+
 include 'config/app.php';
 
 // menerima id barang yang dipilih pengguna
-$id_barang = (int)$_GET['id_barang'];
+$id_barang = (int) $_GET['id_barang'];
 
 if (delete_barang($id_barang) > 0) {
     echo "<script>

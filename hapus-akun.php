@@ -1,5 +1,13 @@
 <?php
 
+// membatasi halaman sebelum login
+if (!isset($_SESSION["login"])) {
+    echo "<script>
+            document.location.href = 'login.php';
+          </script>";
+    exit;
+}
+
 include 'config/app.php';
 
 // menerima id akun yang dipilih pengguna
