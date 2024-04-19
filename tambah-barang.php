@@ -8,12 +8,12 @@ include 'layout/header.php';
 if (isset($_POST['tambah'])) {
   if (create_barang($_POST) > 0) {
     echo "<script>
-            alert('Data Barang Berhasil Ditambahkan);
+            alert('Data Barang Berhasil Ditambahkan');
             document.location.href = 'index.php';
           </script>";
   } else {
     echo "<script>
-            alert('Data Barang Gagal Ditambahkan);
+            alert('Data Barang Gagal Ditambahkan');
             document.location.href = 'index.php';
           </script>";
   }

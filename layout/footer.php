@@ -8,6 +8,9 @@
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
 
+<!-- load fontawesome with cdn -->
+<!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></script> -->
+
 <script>
     new DataTable('#table');
 </script>

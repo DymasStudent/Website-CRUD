@@ -10,12 +10,12 @@ $data_akun = select("SELECT * FROM akun");
 if (isset($_POST['tambah'])) {
   if (create_akun($_POST) > 0) {
     echo "<script>
-            alert('Data Akun Berhasil Ditambahkan.);
-            document.location.href = 'crud-modal.php';
+          alert('Data Akun Berhasil Ditambahkan');
+          document.location.href = 'crud-modal.php';
           </script>";
   } else {
     echo "<script>
-            alert('Data Akun Gagal Ditambahkan.);
+            alert('Data Akun Gagal Ditambahkan');
             document.location.href = 'crud-modal.php';
           </script>";
   }
@@ -25,12 +25,12 @@ if (isset($_POST['tambah'])) {
 if (isset($_POST['ubah'])) {
   if (update_akun($_POST) > 0) {
     echo "<script>
-            alert('Data Akun Berhasil Diubah.);
+            alert('Data Akun Berhasil Diubah');
             document.location.href = 'crud-modal.php';
           </script>";
   } else {
     echo "<script>
-            alert('Data Akun Gagal Diubah.);
+            alert('Data Akun Gagal Diubah');
             document.location.href = 'crud-modal.php';
           </script>";
   }

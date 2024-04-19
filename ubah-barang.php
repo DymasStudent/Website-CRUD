@@ -13,12 +13,12 @@ $barang = select("SELECT * FROM barang WHERE id_barang = $id_barang")[0];
 if (isset($_POST['ubah'])) {
   if (update_barang($_POST) > 0) {
     echo "<script>
-            alert('Data Barang Berhasil Diubah);
+            alert('Data Barang Berhasil Diubah');
             document.location.href = 'index.php';
           </script>";
   } else {
     echo "<script>
-            alert('Data Barang Gagal Diubah);
+            alert('Data Barang Gagal Diubah');
             document.location.href = 'index.php';
           </script>";
   }

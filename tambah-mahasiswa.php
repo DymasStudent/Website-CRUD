@@ -8,12 +8,12 @@ include 'layout/header.php';
 if (isset($_POST['tambah'])) {
   if (create_mahasiswa($_POST) > 0) {
     echo "<script>
-            alert('Data Mahasiswa Berhasil Ditambahkan);
+            alert('Data Mahasiswa Berhasil Ditambahkan');
             document.location.href = 'mahasiswa.php';
           </script>";
   } else {
     echo "<script>
-            alert('Data Mahasiswa Gagal Ditambahkan);
+            alert('Data Mahasiswa Gagal Ditambahkan');
             document.location.href = 'mahasiswa.php';
           </script>";
   }
@@ -81,7 +81,7 @@ if (isset($_POST['tambah'])) {
     const fileFoto = new FileReader();
     fileFoto.readAsDataURL(foto.files[0]);
 
-    filefoto.onload = function(e) {
+    filefoto.onload = function (e) {
       imgPreview.src = e.target.result;
     }
   }
