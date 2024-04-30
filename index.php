@@ -1,9 +1,20 @@
 <?php
 
+session_start();
+
 // membatasi halaman sebelum login
 if (!isset($_SESSION["login"])) {
   echo "<script>
           document.location.href = 'login.php';
+        </script>";
+  exit;
+}
+
+// membatasi halaman sesuai user login
+if ($_SESSION["level"] != 1 or $_SESSION["level"] != 2) {
+  echo "<script>
+          alert('Anda tidak punya Akses');
+          document.location.href = 'crud-modal.php';
         </script>";
   exit;
 }

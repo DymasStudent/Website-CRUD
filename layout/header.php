@@ -36,16 +36,29 @@ include 'config/app.php';
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Barang</a>
-        </li>
+        <?php if ($_SESSION['level'] == 1 or $_SESSION['level'] == 2): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Barang</a>
+          </li>
+        <?php endif; ?>
+
         <li class="nav-item">
           <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="crud-modal.php">Modal</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="logout.php">Keluar</a>
+        </li>
+
       </ul>
+    </div>
+
+    <div>
+      <a class="navbar-brand" href="#"><?= $_SESSION['nama']; ?></a>
     </div>
   </div>
   </nav>
