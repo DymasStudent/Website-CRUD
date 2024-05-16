@@ -43,28 +43,31 @@ $data_administrasi = select("SELECT * FROM administrasi ORDER BY id_administrasi
   <table class="table table-bordered table-striped mt-3" id="table">
     <thead>
       <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th style="text-align: left">Nip</th>
-        <th>Gol</th>
-        <th>Jabatan</th>
-        <th>Instansi</th>
-        <th>Asal</th>
-        <th>Tujuan</th>
+        <th rowspan="2">No</th>
+        <th rowspan="2">Nama</th>
+        <th rowspan="2" style="text-align: left">Nip</th>
+        <th rowspan="2">Gol</th>
+        <th rowspan="2">Jabatan</th>
+        <th rowspan="2">Instansi</th>
+        <th rowspan="2">Asal</th>
+        <th rowspan="2">Tujuan</th>
+        <th colspan="2" style="text-align: center">Tanggal</th>
+        <th rowspan="2">Lama</th>
+        <th rowspan="2">Transport (pp)</th>
+        <th rowspan="2">Uang Harian</th>
+        <th rowspan="2">Penginapan</th>
+        <th rowspan="2">Jumlah</th>
+      </tr>
+      <tr>
         <th>Berangkat</th>
         <th>Kembali</th>
-        <th>Lama</th>
-        <th>Transport (pp)</th>
-        <th>Uang Harian</th>
-        <th>Penginapan</th>
-        <th>Jumlah</th>
       </tr>
     </thead>
     <tbody>
       <?php $no = 1; ?>
       <?php foreach ($data_administrasi as $administrasi): ?>
         <tr>
-          <td style="text-align: left"><?= $no++; ?></td>
+          <td><?= $no++; ?></td>
           <td><?= $administrasi['nama']; ?></td>
           <td><?= $administrasi['nip']; ?></td>
           <td><?= $administrasi['gol']; ?></td>
@@ -79,15 +82,6 @@ $data_administrasi = select("SELECT * FROM administrasi ORDER BY id_administrasi
           <td>Rp. <?= number_format($administrasi['uangHarian'], 0, ',', '.'); ?></td>
           <td>Rp. <?= number_format($administrasi['penginapan'], 0, ',', '.'); ?></td>
           <td>Rp. <?= number_format($administrasi['jumlah'], 0, ',', '.'); ?></td>
-          <!-- <td>Rp. <?= number_format($administrasi['harga'], 0, ',', '.'); ?></td> -->
-          <!-- <td><?= date('d/m/Y | H:i:s', strtotime($administrasi['tanggal'])); ?></td> -->
-          <!-- <td width="20%" class="text-center">
-         <a href="ubah-administrasi.php?id_administrasi=<?= $administrasi['id_administrasi']; ?>"
-           class="btn btn-success"><i class="fas fa-edit"></i> Ubah</a>
-         <a href="hapus-administrasi.php?id_administrasi=<?= $administrasi['id_administrasi']; ?>"
-           class="btn btn-danger" onclick="return confirm('Yakin Data administrasi Akan Dihapus.?');"><i
-             class="fas fa-trash-alt"></i> Hapus</a>
-       </td> -->
         </tr>
       <?php endforeach; ?>
     </tbody>
