@@ -11,21 +11,21 @@ if (isset($_POST['login'])) {
  $password = mysqli_real_escape_string($db, $_POST['password']);
 
  // check
- $result = mysqli_query($db, "SELECT * FROM akun WHERE username = '$username'");
+ $result = mysqli_query($db, "SELECT * FROM akun WHERE username = '$username' ");
 
  // jika ada usernya
  if (mysqli_num_rows($result) == 1) {
   // check passwordnya
   $hasil = mysqli_fetch_assoc($result);
 
-  if (password_verify($password, $hasil["password"])) {
+  if (password_verify($password, $hasil['password'])) {
    // set session
-   $_SESSION["login"] = true;
-   $_SESSION["id_akun"] = $hasil['id_akun'];
-   $_SESSION["nama"] = $hasil["nama"];
-   $_SESSION["username"] = $hasil["username"];
-   $_SESSION["email"] = $hasil["email"];
-   $_SESSION["level"] = $hasil["level"];
+   $_SESSION['login'] = true;
+   $_SESSION['id_akun'] = $hasil['id_akun'];
+   $_SESSION['nama'] = $hasil['nama'];
+   $_SESSION['username'] = $hasil['username'];
+   $_SESSION['email'] = $hasil['email'];
+   $_SESSION['level'] = $hasil['level'];
 
 
    // redirect ke halaman admin

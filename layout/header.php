@@ -38,20 +38,22 @@ include 'config/app.php';
       <ul class="navbar-nav">
         <?php if ($_SESSION['level'] == 1 or $_SESSION['level'] == 2): ?>
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Barang</a>
+            <a class="nav-link" href="index.php">Administrasi</a>
           </li>
         <?php endif; ?>
 
-        <li class="nav-item">
-          <a class="nav-link" href="mahasiswa.php">Mahasiswa</a>
-        </li>
+        <?php if ($_SESSION['level'] == 1 or $_SESSION['level'] == 3): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="pegawai.php">Pegawai</a>
+          </li>
+        <?php endif; ?>
 
         <li class="nav-item">
           <a class="nav-link" href="crud-modal.php">Modal</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Keluar</a>
+          <a class="nav-link" href="logout.php" onclick="return confirm('Yakin ingin Keluar ?')">Keluar</a>
         </li>
 
       </ul>

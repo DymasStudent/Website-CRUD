@@ -12,17 +12,17 @@ if (!isset($_SESSION["login"])) {
 
 include 'config/app.php';
 
-// menerima id barang yang dipilih pengguna
-$id_barang = (int) $_GET['id_barang'];
+// menerima id administrasi yang dipilih pengguna
+$id_administrasi = (int) $_GET['id_administrasi'];
 
-if (delete_barang($id_barang) > 0) {
+if (delete_administrasi($id_administrasi) > 0) {
     echo "<script>
-            alert('Data Barang Berhasil Dihapus');
+            alert('Data administrasi Berhasil Dihapus');
             document.location.href = 'index.php';
         </script>";
 } else {
     echo "<script>
-            alert('Data Barang Gagal Dihapus');
+            alert('Data administrasi Gagal Dihapus');
             document.location.href = 'index.php';
         </script>";
 }

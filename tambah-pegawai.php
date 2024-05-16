@@ -10,34 +10,34 @@ if (!isset($_SESSION["login"])) {
   exit;
 }
 
-$title = 'Tambah Mahasiswa';
+$title = 'Tambah pegawai';
 
 include 'layout/header.php';
 
 // check tombol
 if (isset($_POST['tambah'])) {
-  if (create_mahasiswa($_POST) > 0) {
+  if (create_pegawai($_POST) > 0) {
     echo "<script>
-            alert('Data Mahasiswa Berhasil Ditambahkan');
-            document.location.href = 'mahasiswa.php';
+            alert('Data pegawai Berhasil Ditambahkan');
+            document.location.href = 'pegawai.php';
           </script>";
   } else {
     echo "<script>
-            alert('Data Mahasiswa Gagal Ditambahkan');
-            document.location.href = 'mahasiswa.php';
+            alert('Data pegawai Gagal Ditambahkan');
+            document.location.href = 'pegawai.php';
           </script>";
   }
 }
 ?>
 
 <div class="container mt-5">
-  <h1>Tambah Mahasiswa</h1>
+  <h1>Tambah pegawai</h1>
   <hr>
 
   <form action="" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="nama" class="form-label">Nama Mahasiswa</label>
-      <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Mahasiswa ..." required>
+      <label for="nama" class="form-label">Nama pegawai</label>
+      <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama pegawai ..." required>
     </div>
 
     <div class="row">

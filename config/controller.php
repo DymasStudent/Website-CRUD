@@ -16,55 +16,66 @@ function select($query)
     return $rows;
 }
 
-// fungsi menambah data barang
-function create_barang($post)
+// fungsi menambah data administrasi
+function create_administrasi($post)
 {
     global $db;
 
     $nama = htmlspecialchars($post['nama']);
+    $nip = htmlspecialchars($post['nip']);
+    $gol = htmlspecialchars($post['gol']);
+    $jabatan = htmlspecialchars($post['jabatan']);
+    $instansi = htmlspecialchars($post['instansi']);
+    $asal = htmlspecialchars($post['asal']);
+    $tujuan = htmlspecialchars($post['tujuan']);
+    $berangkat = htmlspecialchars($post['berangkat']);
+    $kembali = htmlspecialchars($post['kembali']);
+    $lama = htmlspecialchars($post['lama']);
+    $transport = htmlspecialchars($post['transport']);
+    $uangHarian = htmlspecialchars($post['uangHarian']);
+    $penginapan = htmlspecialchars($post['penginapan']);
     $jumlah = htmlspecialchars($post['jumlah']);
-    $harga = htmlspecialchars($post['harga']);
     // query tambah data
-    $query = "INSERT INTO barang VALUES(null, '$nama', '$jumlah', '$harga', CURRENT_TIMESTAMP())";
+    $query = "INSERT INTO administrasi VALUES(null, '$nama', '$nip', '$gol', '$jabatan', '$instansi', '$asal', '$tujuan', '$berangkat', '$kembali', '$lama', '$transport', '$uangHarian', '$penginapan', '$jumlah', CURRENT_TIMESTAMP())";
 
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
 }
 
-//fungsi mengubah data barang
-function update_barang($post)
+//fungsi mengubah data administrasi
+function update_administrasi($post)
 {
     global $db;
 
-    $id_barang = htmlspecialchars($post['id_barang']);
+    $id_administrasi = htmlspecialchars($post['id_administrasi']);
     $nama = htmlspecialchars($post['nama']);
     $jumlah = htmlspecialchars($post['jumlah']);
     $harga = htmlspecialchars($post['harga']);
 
     // query ubah data
-    $query = "UPDATE barang SET nama = '$nama', jumlah = '$jumlah', harga = '$harga' WHERE id_barang = $id_barang";
+    $query = "UPDATE administrasi SET nama = '$nama', jumlah = '$jumlah', harga = '$harga' WHERE id_administrasi = $id_administrasi";
 
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
 }
 
-// fungsi menghapus data barang
-function delete_barang($id_barang)
+// fungsi menghapus data administrasi
+function delete_administrasi($id_administrasi)
 {
     global $db;
 
-    // query hapus data barang
-    $query = "DELETE FROM barang WHERE id_barang = $id_barang";
+    // query hapus data administrasi
+    $query = "DELETE FROM administrasi WHERE id_administrasi = $id_administrasi";
 
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
 }
 
-// fungsi menambah data mahasiswa
-function create_mahasiswa($post)
+// fungsi menambah data pegawai
+function create_pegawai($post)
 {
     global $db;
 
@@ -81,19 +92,19 @@ function create_mahasiswa($post)
     }
 
     // query tambah data
-    $query = "INSERT INTO mahasiswa VALUES(null, '$nama', '$prodi', '$jk', '$telepon', '$email', '$foto')";
+    $query = "INSERT INTO pegawai VALUES(null, '$nama', '$prodi', '$jk', '$telepon', '$email', '$foto')";
 
     mysqli_query($db, $query);
 
     return mysqli_affected_rows($db);
 }
 
-// fungsi mengubah data mahasiswa
-function update_mahasiswa($post)
+// fungsi mengubah data pegawai
+function update_pegawai($post)
 {
     global $db;
 
-    $id_mahasiswa = htmlspecialchars($post['$id_mahasiswa']);
+    $id_pegawai = htmlspecialchars($post['$id_pegawai']);
     $nama = htmlspecialchars($post['nama']);
     $prodi = htmlspecialchars($post['prodi']);
     $jk = htmlspecialchars($post['jk']);
@@ -109,7 +120,7 @@ function update_mahasiswa($post)
     }
 
     // query ubah data
-    $query = "UPDATE mahasiswa SET nama = '$nama', prodi = '$prodi', jk = '$jk', telepon = '$telepon', email = '$email', foto = '$foto' WHERE id_mahasiswa = $id_mahasiswa";
+    $query = "UPDATE pegawai SET nama = '$nama', prodi = '$prodi', jk = '$jk', telepon = '$telepon', email = '$email', foto = '$foto' WHERE id_pegawai = $id_pegawai";
 
     mysqli_query($db, $query);
 
@@ -135,7 +146,7 @@ function upload_file()
 
         echo "<script>
                 alert('Form File Tidak Valid');
-                document.location.href = 'tambah-mahasiswa.php';
+                document.location.href = 'tambah-pegawai.php';
             </script>";
         die();
     }
@@ -144,7 +155,7 @@ function upload_file()
     if ($ukuranFile > 2048000) {
         echo "<script>
                 alert('Ukuran File Max 2 MB');
-                document.location.href = 'tambah-mahasiswa.php';
+                document.location.href = 'tambah-pegawai.php';
             </script>";
         die();
     }
@@ -160,17 +171,17 @@ function upload_file()
 
 }
 
-// fungsi menghapus data mahasiswa
-function delete_mahasiswa($id_mahasiswa)
+// fungsi menghapus data pegawai
+function delete_pegawai($id_pegawai)
 {
     global $db;
 
     // ambil foto sesusai data yang dipilih
-    $foto = select("SELECT * FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa")[0];
+    $foto = select("SELECT * FROM pegawai WHERE id_pegawai = $id_pegawai")[0];
     unlink("assets/img/" . $foto['foto']);
 
-    // query hapus data mahasiswa
-    $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = $id_mahasiswa";
+    // query hapus data pegawai
+    $query = "DELETE FROM pegawai WHERE id_pegawai = $id_pegawai";
 
     mysqli_query($db, $query);
 
